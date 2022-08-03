@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Countries from './components/countries/Countries';
+import {Routes,Route}from 'react-router-dom';
+import {AppBar, Toolbar,Typography,Button} from '@mui/material';
+import Detail from './components/countries/Detail';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppBar sx={{bgcolor:'primary.dark'}}>
+        <Toolbar>
+           <Typography>Where In The World?</Typography>
+        </Toolbar>
+      </AppBar>
+      <div style={{minHeight:'70px'}}></div>
+      <Routes>
+        <Route path='/' element={<Countries/>}/>
+        <Route path="/country/:id" element={<Detail/>}/>
+      </Routes>
+       
     </div>
   );
 }
